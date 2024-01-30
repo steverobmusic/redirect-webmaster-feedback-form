@@ -35,12 +35,13 @@
             text-decoration: none;
             font-weight: bold;
             margin-right: 5px;
+            cursor: pointer;
         }
 
-        .close-window-link {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
+        .countdown {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #555;
         }
     </style>
 </head>
@@ -51,14 +52,35 @@
             and onto this link (<a href="https://forms.bettercollected.com/steverob/forms/webmaster-feedback" class="redirect-link" target="_blank">https://forms.bettercollected.com/steverob/forms/webmaster-feedback</a>)
             by our good friends at Bettercollected to submit your feedback.
         </p>
-        <p>If you do not wish to continue, <a href="#" class="close-window-link" onclick="window.close();">click here</a>.</p>
-        <p class="redirect-info">This window will close automatically after 5 seconds.</p>
+        <p>If you do not wish to continue, <span class="redirect-link" onclick="confirmClose()">click here</span>.</p>
+        <p class="countdown" id="countdown">This window will close automatically in 10 seconds.</p>
     </div>
 
     <script>
-        setTimeout(function() {
-            window.location.href = "https://forms.bettercollected.com/steverob/forms/webmaster-feedback";
-        }, 5000); // 5000 milliseconds = 5 seconds
+        let countdownValue = 10;
+
+        function updateCountdown() {
+            document.getElementById('countdown').textContent = `This window will close automatically in ${countdownValue} seconds.`;
+        }
+
+        function confirmClose() {
+            if (confirm("Are you sure you want to close this window?")) {
+                window.close();
+            }
+        }
+
+        updateCountdown(); // Initial display
+
+        const countdownInterval = setInterval(function () {
+            countdownValue--;
+
+            if (countdownValue <= 0) {
+                clearInterval(countdownInterval);
+                window.location.href = "https://forms.bettercollected.com/steverob/forms/webmaster-feedback";
+            } else {
+                updateCountdown();
+            }
+        }, 1000);
     </script>
 </body>
 </html>
