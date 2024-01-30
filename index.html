@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .redirect-container {
+            max-width: 400px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .redirect-text {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .redirect-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .close-window-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="redirect-container">
+        <p class="redirect-text">
+            You are being redirected to our feedback form. This will take you outside of the Steve Rob Music website
+            and onto this link (<a href="https://forms.bettercollected.com/steverob/forms/webmaster-feedback" class="redirect-link" target="_blank">https://forms.bettercollected.com/steverob/forms/webmaster-feedback</a>)
+            by our good friends at Bettercollected to submit your feedback.
+        </p>
+        <p>If you do not wish to continue, <a href="#" class="close-window-link" onclick="window.close();">click here</a>.</p>
+        <p class="redirect-info">This window will close automatically after 5 seconds.</p>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            window.location.href = "https://forms.bettercollected.com/steverob/forms/webmaster-feedback";
+        }, 5000); // 5000 milliseconds = 5 seconds
+    </script>
+</body>
+</html>
